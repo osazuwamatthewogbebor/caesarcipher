@@ -113,7 +113,10 @@ def detect():
                             possible_shifts.append(shift_value)
                         break
 
-    if possible_count > 1:
+    if possible_count == 1 and possible_shifts[0] == 0:
+        print("\nText already decrypted or in its original form\n")
+
+    elif possible_count > 0:
         print(f"Caesar Cipher algorithm detected \n")
     see_original = input("Would you like to see the original text? ' 'y' or 'n': ").lower()
     possible_original = " none found"
