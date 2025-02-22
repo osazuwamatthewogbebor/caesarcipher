@@ -1,6 +1,4 @@
-# import requests
 import re
-
 
 def encrypt():
     """
@@ -89,14 +87,11 @@ def detect():
                 processed_text += char
         processed_text_list = processed_text.split()
 
-        # Using a dictionary api or perdefined wordlist to check for English words.
+        # Using a predefined wordlist to check for English words.
         with open("./words.txt", "r") as file:
             word_list = file.read()
         for word in processed_text_list:
             if len(word) > accuracy:
-                # url = f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}"
-                # response = requests.get(url)
-                # if response.text[3:7] == "word":
                 with open("./words.txt", "r", encoding="utf-8") as file:
                     content = file.read()
                     if re.search(rf"\b{word}\b", content):
